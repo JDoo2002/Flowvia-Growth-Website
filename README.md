@@ -1,6 +1,6 @@
 ﻿# Flowvia Growth Website
 
-A minimal Astro project with strict TypeScript configuration.
+The Flowvia Growth website, rebuilt in Astro with responsive layouts and strict TypeScript configuration. The original page copy, five FAQs, chat transcripts, booking destination, and contact details are retained.
 
 ## Requirements
 
@@ -44,7 +44,20 @@ This applies to that user's PowerShell sessions, across projects. Scripts marked
 - `astro.config.mjs`: Astro configuration.
 - `tsconfig.json`: TypeScript configuration.
 
-Reusable components can go in `src/components/` and shared page layouts in `src/layouts/` as the site grows.
+- `src/components/`: Shared brand and icon components.
+- `src/data/site.ts`: Benefits, lead process, FAQs, and booking URL.
+- `src/data/conversation.json`: The original AI conversation example.
+- `src/data/schema.json`: Structured data retained from the original site.
+- `src/styles/global.css`: Responsive design and typography.
+- `src/assets/flowvia-logo.png`: Original logo, optimized by Astro during builds.
+
+The FAQ accordion uses native HTML details elements. The mobile navigation is the only custom client script. React is not required.
+
+## Assets
+
+The original logo was supplied with the old site's HTML.
+The solar rooftop photograph is by [Watt A Lot on Unsplash](https://unsplash.com/photos/a-house-with-solar-panels-gqpuuF3a2tY), used under the Unsplash License.
+Manrope is self-hosted in `public/fonts/`; its SIL Open Font License is included there.
 
 ## Do I need React?
 

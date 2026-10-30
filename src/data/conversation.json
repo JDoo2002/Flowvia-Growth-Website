@@ -1,0 +1,110 @@
+[
+  {
+    "who": "user",
+    "text": "Hi, I’d like a quote for solar and a battery."
+  },
+  {
+    "who": "ai",
+    "text": "Hi! Thanks for your enquiry. Do you own the home?",
+    "label": "Replied in 2 sec"
+  },
+  {
+    "who": "user",
+    "text": "Yes, I own it."
+  },
+  {
+    "who": "ai",
+    "text": "Great. Roughly what’s your power bill each quarter?",
+    "label": "Replied in 2 sec"
+  },
+  {
+    "who": "user",
+    "text": "About $600 per quarter."
+  },
+  {
+    "who": "ai",
+    "text": "Thanks! What type of roof do you have? Do you have tiles, metal or something else?",
+    "label": "Replied in 2 sec"
+  },
+  {
+    "who": "user",
+    "text": "Colorbond metal roofing."
+  },
+  {
+    "who": "ai",
+    "text": "Got it. Is your roof mostly unshaded, or do trees or nearby buildings cast shade during the day?",
+    "label": "Replied in 2 sec"
+  },
+  {
+    "who": "user",
+    "text": "Mostly clear, with a little afternoon shade."
+  },
+  {
+    "who": "ai",
+    "text": "Perfect. Do you already have solar panels installed, or would this be a brand-new solar system?",
+    "label": "Replied in 2 sec"
+  },
+  {
+    "who": "user",
+    "text": "I already have a 6.6 kW solar system."
+  },
+  {
+    "who": "ai",
+    "text": "Thank you. Do you know your inverter brand or model? We can check whether it may be compatible with a battery.",
+    "label": "Replied in 2 sec"
+  },
+  {
+    "who": "user",
+    "text": "It’s a Sungrow, but I’m not sure of the model."
+  },
+  {
+    "who": "ai",
+    "text": "No problem. A photo of the inverter label can help the installer confirm compatibility. Do you use ducted air conditioning, a pool or an electric vehicle?",
+    "label": "Replied in 2 sec"
+  },
+  {
+    "who": "user",
+    "text": "We have ducted air conditioning and may get an EV next year."
+  },
+  {
+    "who": "ai",
+    "text": "That’s useful to know. Where is the property located? Which suburb and postcode?",
+    "label": "Replied in 2 sec"
+  },
+  {
+    "who": "user",
+    "text": "Melbourne, Victoria."
+  },
+  {
+    "who": "ai",
+    "text": "Great. Is there a suitable spot for a battery, such as a garage or exterior wall? The installer can confirm clearances and safety requirements on site.",
+    "label": "Replied in 2 sec"
+  },
+  {
+    "who": "user",
+    "text": "There’s space beside the garage."
+  },
+  {
+    "who": "ai",
+    "text": "Excellent. We’ve gathered the key details. The installer can check roof measurements, switchboard capacity, battery placement and any required approvals during the visit.",
+    "label": "Replied in 2 sec"
+  },
+  {
+    "who": "user",
+    "text": "Sounds good. Can I book an appointment?"
+  },
+  {
+    "who": "ai",
+    "text": "Absolutely! The installer has Wednesday at 10:00 AM available for a free on-site assessment. Does that work for you?",
+    "label": "Replied in 2 sec"
+  },
+  {
+    "who": "user",
+    "text": "Wednesday at 10am works great."
+  },
+  {
+    "who": "ai",
+    "text": "You’re booked in for Wednesday at 10:00 AM. You’ll get a confirmation text shortly, and the installer will prepare a tailored quote for you.",
+    "label": "Replied in 2 sec"
+  }
+]

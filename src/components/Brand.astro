@@ -1,0 +1,11 @@
+---
+import { getImage } from 'astro:assets';
+import logo from '../assets/flowvia-logo.png';
+interface Props { footer?: boolean; }
+const { footer = false } = Astro.props;
+const mark = await getImage({ src: logo, width: 256, format: 'webp' });
+---
+<a class:list={['brand', { 'brand-footer': footer }]} href="#top" aria-label="Flowvia Growth home">
+  <svg class="brand-mark" viewBox="340 220 660 510" aria-hidden="true"><image href={mark.src} width="1254" height="1254" /></svg>
+  <span class="brand-name">Flowvia<span class="brand-growth">GROWTH</span></span>
+</a>
