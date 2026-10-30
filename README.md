@@ -1,75 +1,49 @@
 ﻿# Flowvia Growth Website
 
-The Flowvia Growth website, rebuilt in Astro with responsive layouts and strict TypeScript configuration. The original page copy, five FAQs, chat transcripts, booking destination, and contact details are retained.
+Astro marketing site for Australian solar and battery installers. The current page ports the supplied `flowvia-growth-studio` Lovable design: its rooftop photograph, Instrument Serif and Geist typography, floating navigation, animated conversation, service cards, response-time comparison, FAQ and closing call to action. Accents follow Flowvia's blue logo, and the requested headline is retained.
 
-## Requirements
+The product is a done-for-you service combining targeted advertising, AI qualification and follow-up, and calendar booking. Conversations, chart graphics and response-time comparisons are illustrative. The $96,000 calculation represents one hypothetical missed $8,000 job per month; it is not a customer result or revenue guarantee.
 
-Use Node.js LTS (Node 26 was used for the initial setup) and npm, which comes with Node.js.
-After installing Node.js, restart your terminal app or editor so it picks up the updated PATH.
-An integrated terminal can inherit an old PATH even when you open a new terminal tab.
-If PowerShell cannot find `npm.cmd`, refresh the current session before running the commands below:
+## Development
 
-```powershell
-$env:Path = 'C:\Program Files\nodejs;' + $env:Path
-```
-
-## Getting started
-
-Run these commands from this folder:
+Use Node.js matching `package.json`'s engine requirement and npm. From this folder:
 
 ```sh
 npm install
 npm start
 ```
 
-Open the local URL printed in the terminal, normally http://localhost:4321.
-Edit `src/pages/index.astro` to change the home page. Changes appear automatically while the dev server runs.
-PowerShell on the initial development machine is configured with `RemoteSigned` for the current Windows user, so `npm start` works without an alias.
-On another Windows machine, if PowerShell blocks `npm.ps1`, you can enable local scripts persistently with `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned`.
-This applies to that user's PowerShell sessions, across projects. Scripts marked as downloaded from the internet still require a signature or explicit unblocking.
-
-## Commands
+Open the URL printed by Astro, normally http://localhost:4321. Changes update automatically.
 
 | Command | Purpose |
 | --- | --- |
-| `npm start` | Start the development server |
-| `npm run dev` | Alternative command for the development server |
-| `npm run build` | Create the production site in `dist/` |
-| `npm run preview` | Preview a production build locally |
+| `npm start` | Start development |
+| `npm run dev` | Alternative development command |
+| `npm run build` | Create the static production site in `dist/` |
+| `npm run preview` | Preview the production build |
 
-## Project structure
+For agent-managed background development, use `npm exec astro dev --background`; inspect it with `npm exec astro dev status` and stop it with `npm exec astro dev stop`.
 
-- `src/pages/`: Pages and routes; `index.astro` is the home page.
-- `public/`: Static files such as images and favicons.
-- `astro.config.mjs`: Astro configuration.
-- `tsconfig.json`: TypeScript configuration.
+PowerShell on the initial machine uses `RemoteSigned` for the current user, allowing `npm start` without an alias. After installing Node, restart your terminal app or editor to refresh PATH. On another machine, `npm.cmd start` also works if PowerShell blocks `npm.ps1`.
 
-- `src/components/`: Shared brand and icon components.
-- `src/data/site.ts`: Benefits, lead process, FAQs, and booking URL.
-- `src/data/conversation.json`: The original AI conversation example.
-- `src/data/schema.json`: Structured data retained from the original site.
-- `src/styles/global.css`: Responsive design and typography.
-- `src/assets/flowvia-logo.png`: Original logo, optimized by Astro during builds.
+## Implementation
 
-The FAQ accordion uses native HTML details elements. The mobile navigation is the only custom client script. React is not required.
+- `src/pages/index.astro`: Page composition, content and metadata.
+- `src/components/landing/`: Booking button, conversation and service-card components.
+- `src/components/Brand.astro`: Original Flowvia logo.
+- `src/scripts/landing.ts`: Native TypeScript controllers for chat playback, scroll reveals, parallax, count-up, pointer spotlights, comparison bars and FAQ state.
+- `src/styles/global.css`: Tailwind 4 theme, responsive styles and animation keyframes adapted from the supplied design.
+- `src/data/site.ts`: Booking URL and FAQs, plus retained content from earlier iterations.
+- `src/data/schema.json`: Organization and service structured data.
+- `src/assets/reference-hero.jpg`: Hero photograph supplied in the reference project; Astro emits responsive WebP images.
+- `public/fonts/`: Self-hosted Geist and Instrument Serif, with their SIL Open Font Licenses. Earlier fonts are retained but not loaded.
 
-## Assets
+React, a client router and an animation library are not required. Astro outputs static HTML; Tailwind is integrated through its Vite plugin. Only the small interaction script runs in the browser. Earlier unused components and imagery are retained in the repository and are not imported by this page.
 
-The original logo was supplied with the old site's HTML.
-The solar rooftop photograph is by [Watt A Lot on Unsplash](https://unsplash.com/photos/a-house-with-solar-panels-gqpuuF3a2tY), used under the Unsplash License.
-Manrope is self-hosted in `public/fonts/`; its SIL Open Font License is included there.
+Chat playback supports pause/resume and pauses outside the viewport or when the tab is hidden. It reserves enough height for the entire conversation without an internal scrollbar. Reduced-motion preferences show the completed conversation, static figures and visible sections. Without JavaScript, the full conversation and all FAQ answers remain readable. The `#compare` link still reaches the compact response-time comparison.
 
-## Do I need React?
+## Verification
 
-No. Astro pages can use HTML, CSS, and JavaScript directly. React is optional for components that benefit from it, such as a stateful calculator or a React component library.
+The port was checked with a production build and headless Edge at 320px, 390px, 768px, 1024px and 1440px widths. Browser checks covered conversation timing and pause/resume, offscreen suspension, count-up, comparison bars, pointer spotlights, FAQ controls, reduced motion, booking destinations and the JavaScript-disabled fallback. No browser runtime exceptions or horizontal overflow were observed.
 
-To add it later, run:
-
-```sh
-npx astro add react
-```
-
-This installs and configures React within this project. You do not need a separate React app.
-Interactive React components need a client directive, for example `<Counter client:load />`.
-
-See the [Astro documentation](https://docs.astro.build/) and [React integration guide](https://docs.astro.build/en/guides/integrations-guide/react/).
+The original React reference at `C:\Users\Admin\Code\flowvia-growth-studio` is not modified. This is a local project; no deployment is performed.

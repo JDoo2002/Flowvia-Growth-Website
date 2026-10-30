@@ -1,0 +1,25 @@
+---
+const messages = [
+  { me: true, text: 'Hi, keen on a quote for solar + battery 🙂' },
+  { me: false, text: "Hey! Happy to help. Is it your own home, and what's your quarterly power bill roughly?" },
+  { me: true, text: 'Yep my place. About $600 a quarter.' },
+  { me: false, text: "Thanks! I've got Thursday 10am free for an assessment. Would that suit you?" },
+  { me: true, text: 'Perfect, book it 👍' },
+];
+---
+<div class="live-chat glass relative w-full max-w-sm rounded-[2.25rem] border border-border p-3 shadow-soft" data-live-chat aria-label="Illustrative animated homeowner conversation">
+  <span class="chat-caption">Example conversation</span>
+  <button type="button" class="chat-playback" data-chat-playback aria-pressed="false">Pause conversation</button>
+  <div class="rounded-[1.75rem] bg-background/80 p-4">
+    <div class="mb-4 flex items-center gap-3 border-b border-border pb-3">
+      <div class="bg-sun h-9 w-9 rounded-full shadow-glow" aria-hidden="true"></div>
+      <div class="flex-1"><div class="text-sm font-medium">Your AI assistant</div><div class="flex items-center gap-1.5 text-[11px] text-success"><span class="h-1.5 w-1.5 animate-pulse rounded-full bg-success" aria-hidden="true"></span> Online · replies in seconds</div></div>
+      <div class="text-[11px] text-muted-foreground">11:47 pm</div>
+    </div>
+    <div class="chat-message-stack flex flex-col justify-end gap-2.5" data-chat-stack>
+      {messages.map((message, i) => <div class:list={['chat-message flex', message.me ? 'justify-end' : 'justify-start']} data-chat-message data-me={String(message.me)} data-index={i}><div class:list={['max-w-[82%] rounded-2xl px-3.5 py-2 text-[13px] leading-snug', message.me ? 'rounded-br-md bg-primary text-primary-foreground' : 'rounded-bl-md bg-muted']}>{message.text}</div></div>)}
+      <div class="chat-typing flex gap-1 self-start rounded-2xl rounded-bl-md bg-muted px-4 py-3" data-chat-typing hidden aria-hidden="true">{[0, 1, 2].map(i => <span class="animate-typing h-1.5 w-1.5 rounded-full bg-muted-foreground" style={`animation-delay:${i * 150}ms`}></span>)}</div>
+    </div>
+  </div>
+  <div class="chat-booked absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-success/40 bg-background px-4 py-2 text-xs font-medium text-success transition-all duration-500" data-chat-booked>✓ Assessment booked · Thu 10:00am</div>
+</div>

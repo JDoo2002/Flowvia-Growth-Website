@@ -1,0 +1,46 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Icon from './Icon.astro';
+interface Props { image: ImageMetadata; }
+const { image } = Astro.props;
+const stages = [
+  { id: 'campaign', label: 'Ad campaigns', icon: 'target' },
+  { id: 'conversation', label: 'AI conversations', icon: 'message' },
+  { id: 'calendar', label: 'Calendar', icon: 'calendar' },
+];
+---
+<div class="product-stage" id="system-preview" data-demo data-demo-view="conversation">
+  <noscript><style is:inline>[data-demo] .demo-view{display:grid!important}[data-demo] .demo-navigation,[data-demo] [data-demo-play],[data-demo] .demo-next{display:none!important}</style></noscript>
+  <div class="stage-reflection" aria-hidden="true"></div>
+  <div class="product-window">
+    <aside class="demo-sidebar">
+      <div class="demo-wordmark"><span><Icon name="growth" size={21} /></span>Flowvia<span class="demo-wordmark-plus">✧</span></div>
+      <div class="demo-workspace"><span class="workspace-avatar">S</span><div><strong>Your solar business</strong><span>Managed workspace</span></div><span class="workspace-chevron">⌄</span></div>
+      <p class="sidebar-label">YOUR LEAD SYSTEM</p>
+      <div class="demo-navigation" role="group" aria-label="Explore the example lead system">
+        {stages.map(stage => <button type="button" data-demo-target={stage.id} data-demo-nav aria-controls={`demo-${stage.id}`} aria-pressed={stage.id === 'conversation'}><Icon name={stage.icon} size={17} /><span>{stage.label}</span>{stage.id === 'conversation' && <span class="nav-indicator"></span>}</button>)}
+      </div>
+      <div class="sidebar-automation"><span><Icon name="bolt" size={15} /> Follow-up automation</span><p><i></i> Working around the clock</p></div>
+      <div class="sidebar-bottom"><span class="managed-avatar"><Icon name="shield" size={17} /></span><div><strong>Built &amp; managed for you</strong><span>By Flowvia Growth</span></div></div>
+    </aside>
+    <div class="demo-main">
+      <div class="demo-topbar"><div><Icon name="growth" size={14} /><span>Your lead system</span><span class="breadcrumb-slash">/</span><strong data-demo-screen-label>AI conversations</strong></div><span class="demo-example-label">Illustrative walkthrough</span></div>
+      <div class="demo-view campaign-view" data-demo-panel="campaign" id="demo-campaign" aria-label="Example advertising campaign">
+        <div class="campaign-example"><div class="campaign-meta"><span class="campaign-logo"><Icon name="sun" size={16} /></span><div><strong>Your solar business</strong><span>Example ad creative</span></div><Icon name="diagonal" size={14} /></div><div class="campaign-photo"><Image src={image} width={1000} format="webp" alt="Illustrative solar technician photograph in an example solar advertising campaign" loading="eager" fetchpriority="high" /><div><span>SOLAR + BATTERY</span><strong>A brighter home.<br />A smarter next step.</strong></div></div><div class="campaign-ad-copy"><p>Thinking about solar or battery storage? Start with a home assessment.</p><span>Request an assessment <Icon name="diagonal" size={14} /></span></div></div>
+        <div class="campaign-explanation"><span class="demo-step-label">01 / ATTRACT THE RIGHT HOMEOWNERS</span><h3>Your service area.<br />Your next enquiry.</h3><p>We build and run targeted ad campaigns for your solar and battery business. Homeowner enquiries feed into the follow-up system we set up for you.</p><dl><div><dt>Audience</dt><dd>Homeowners in your service area</dd></div><div><dt>Interest</dt><dd>Solar &amp; battery installation</dd></div><div><dt>Next step</dt><dd>AI responds and qualifies</dd></div></dl><button class="demo-next" type="button" data-demo-target="conversation" aria-controls="demo-conversation">See the conversation <Icon name="arrow" size={15} /></button></div>
+      </div>
+      <div class="demo-view conversation-view" data-demo-panel="conversation" id="demo-conversation" aria-label="Example AI qualification conversation">
+        <div class="demo-inbox"><div class="inbox-heading"><strong>Enquiries</strong><Icon name="message" size={15} /></div><div class="inbox-search"><Icon name="target" size={12} /> Your homeowner conversations</div><div class="inbox-item selected"><span class="contact-avatar">H</span><div><strong>Melbourne homeowner</strong><p>Solar &amp; battery quote</p><span class="inbox-tag">Qualified</span></div><i></i></div><div class="inbox-item muted"><span class="contact-avatar">S</span><div><strong>Solar installation enquiry</strong><p>New conversation</p></div></div><div class="inbox-item muted"><span class="contact-avatar">B</span><div><strong>Battery storage enquiry</strong><p>Follow-up ready</p></div></div><p class="inbox-caption">Illustrative homeowner enquiries</p></div>
+        <div class="demo-thread"><div class="thread-header"><span class="contact-avatar">H</span><div><strong>Melbourne homeowner</strong><p>Solar &amp; battery installation</p></div><span class="assistant-active"><i></i> AI assistant</span></div><div class="thread-messages"><p class="thread-date">EXAMPLE CONVERSATION</p><div class="thread-message homeowner">Hi, I’d like a quote for solar and a battery.</div><div class="thread-message assistant">Great to hear from you! Is this for your own home, and roughly what’s your quarterly power bill?<span><Icon name="check" size={11} /> Replied in seconds</span></div><div class="thread-message homeowner">Yes, my home. About $600 a quarter.</div><div class="thread-message assistant">Perfect. I can book a free assessment this week. Does Thursday suit?<span><Icon name="check" size={11} /> Ready for the next step</span></div></div><div class="thread-composer"><span><Icon name="bolt" size={14} /> Your assistant handles the follow-up.</span><Icon name="shield" size={15} /></div></div>
+        <aside class="demo-profile"><p class="profile-heading">HOMEOWNER DETAILS</p><span class="profile-avatar">H</span><strong>Melbourne homeowner</strong><span class="profile-status"><Icon name="check" size={11} /> Qualified enquiry</span><dl><div><dt>Interested in</dt><dd>Solar &amp; battery</dd></div><div><dt>Homeownership</dt><dd>Confirmed</dd></div><div><dt>Quarterly electricity bill</dt><dd>$600</dd></div><div><dt>Next step</dt><dd>Site assessment</dd></div></dl><button class="demo-next" type="button" data-demo-target="calendar" aria-controls="demo-calendar">See the booking <Icon name="arrow" size={14} /></button></aside>
+      </div>
+      <div class="demo-view calendar-view" data-demo-panel="calendar" id="demo-calendar" aria-label="Example site assessment in the installer's calendar">
+        <div class="calendar-workspace"><div class="calendar-title"><div><span class="demo-step-label">03 / BOOK THE APPOINTMENT</span><h3>Your site assessments</h3></div><span>Example week</span></div><div class="week-calendar"><div class="calendar-times"><span></span><span>9 AM</span><span>10 AM</span><span>11 AM</span><span>12 PM</span></div>{['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].map((day, i) => <div class:list={['week-day', { 'appointment-day': i === 3 }]}><strong>{day}</strong><div></div><div>{i === 3 && <div class="calendar-appointment"><span>10:00 AM</span><strong>Solar &amp; battery assessment</strong><p>Melbourne homeowner</p><Icon name="check" size={13} /></div>}</div><div></div><div></div></div>)}</div></div>
+        <div class="appointment-profile"><span class="appointment-large-icon"><Icon name="calendar" size={27} /></span><span class="demo-step-label">NEXT STOP: ON SITE.</span><h3>A qualified homeowner.<br />A place in your calendar.</h3><p>The assistant connects to your calendar, so the next step becomes an appointment.</p><ul><li><Icon name="check" size={14} /> Homeowner details captured</li><li><Icon name="check" size={14} /> Calendar booking connected</li><li><Icon name="check" size={14} /> Appointment reminder scheduled</li></ul><span class="appointment-example-note">Illustrative booking, not a live appointment.</span></div>
+      </div>
+      <div class="demo-statusbar"><span><i></i> Done-for-you advertising, AI follow-up &amp; booking</span><button type="button" data-demo-play aria-pressed="false"><Icon name="arrow" size={13} /><span data-demo-play-label>Play walkthrough</span></button></div>
+    </div>
+  </div>
+  <div class="demo-caption"><span>EXAMPLE SYSTEM / CONFIGURED FOR YOUR BUSINESS</span><span>Select a stage to explore <Icon name="arrow" size={13} /></span></div>
+</div>

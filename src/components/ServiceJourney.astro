@@ -1,0 +1,21 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Icon from './Icon.astro';
+interface Props { image: ImageMetadata; }
+const { image } = Astro.props;
+---
+<figure class="journey-visual" aria-label="Example of the advertising, AI qualification and calendar booking Flowvia sets up">
+  <div class="journey-photo">
+    <Image src={image} width={1000} format="webp" alt="Illustrative solar technician checking rooftop solar panels on a bright Australian morning" loading="eager" fetchpriority="high" />
+    <span class="photo-step"><span>01</span> Your ad campaign <Icon name="diagonal" size={15} /></span>
+    <p class="photo-caption">Reach homeowners<br />ready to talk solar.</p>
+  </div>
+  <div class="journey-assistant">
+    <div class="assistant-heading"><span class="assistant-symbol"><Icon name="bolt" size={19} /></span><div><strong>Your AI assistant</strong><span>02 / Responds &amp; qualifies, 24/7</span></div><i></i></div>
+    <div class="mini-message homeowner">Hi, I’d like a solar and battery quote.</div>
+    <div class="mini-message assistant">Happy to help! Do you own the home, and roughly what’s your quarterly power bill?<span><Icon name="check" size={11} /> Replied in seconds</span></div>
+  </div>
+  <div class="journey-booking"><span class="booking-symbol"><Icon name="calendar" size={25} /></span><div><span>03 / Your calendar</span><strong>Site assessment booked</strong><p>Qualified homeowner. Details captured.</p></div><Icon name="check" size={20} /></div>
+  <figcaption>Illustrative example of the system we build for you.</figcaption>
+</figure>

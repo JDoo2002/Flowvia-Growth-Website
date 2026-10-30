@@ -1,0 +1,8 @@
+---
+import { bookingUrl } from '../../data/site';
+---
+<a href={bookingUrl} class="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-primary py-2 pl-6 pr-2 text-sm font-medium text-primary-foreground shadow-glow transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98]">
+  <span class="bg-sun absolute inset-0 translate-y-full transition-transform duration-500 group-hover:translate-y-0" aria-hidden="true"></span>
+  <span class="relative"><slot>Book a strategy call</slot></span>
+  <span class="relative flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground text-primary transition-transform duration-500 group-hover:rotate-[-45deg]" aria-hidden="true">→</span>
+</a>

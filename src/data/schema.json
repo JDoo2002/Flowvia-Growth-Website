@@ -1,44 +1,20 @@
-{
+﻿{
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "WebPage",
-      "headline": "Wake up to booked out installation appointments , not missed leads",
-      "name": "Wake up to booked out installation appointments , not missed leads",
-      "description": "Done-for-you lead system. The serious homeowners, booked into your calendar, without relying on referrals or chasing dead leads. All you have to do is show up to the appointments and install.",
-      "image": {
-        "@type": "ImageObject",
-        "url": "https://assets.cdn.filesafe.space/Rtfdnwj0QH4Ss1nLjkgO/media/6addffbe36aa4a07e8bceed0.png"
-      },
-      "inLanguage": "en-AU",
-      "mainEntity": {
-        "@id": "#service-1"
-      },
-      "publisher": {
-        "@id": "#flowvia"
-      },
-      "copyrightYear": "2026"
+      "@type": "Organization",
+      "@id": "https://flowviagrowth.com.au/#organization",
+      "name": "Flowvia Growth",
+      "url": "https://flowviagrowth.com.au/",
+      "email": "flowviagrowth@gmail.com"
     },
     {
       "@type": "Service",
-      "@id": "#service-1",
-      "name": "Done-for-you lead system",
-      "serviceType": "Lead generation and appointment booking for solar and battery installation businesses",
-      "description": "For Solar and Battery Installation Business Owners — a done-for-you lead system that delivers qualified homeowners booked into your calendar so you can install without chasing leads.",
-      "provider": {
-        "@id": "#flowvia"
-      },
-      "areaServed": "Australia"
-    },
-    {
-      "@type": "Organization",
-      "@id": "#flowvia",
-      "name": "Flowvia Growth",
-      "email": "flowviagrowth@gmail.com",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://assets.cdn.filesafe.space/Rtfdnwj0QH4Ss1nLjkgO/media/6addffbe36aa4a07e8bceed0.png"
-      }
+      "name": "Done-for-you marketing and AI appointment booking",
+      "serviceType": "Advertising, AI lead qualification and follow-up, and appointment booking for solar and battery installers",
+      "description": "Flowvia runs targeted ads, sets up an AI assistant to qualify and follow up with homeowners, and connects it to the installer's calendar to book site assessments.",
+      "areaServed": "Australia",
+      "provider": { "@id": "https://flowviagrowth.com.au/#organization" }
     }
   ]
 }

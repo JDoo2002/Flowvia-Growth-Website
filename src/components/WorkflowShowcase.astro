@@ -1,0 +1,38 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Icon from './Icon.astro';
+interface Props { image: ImageMetadata; }
+const { image } = Astro.props;
+---
+<div class="workflow-wrap" id="system-preview" data-workflow data-workflow-view="assistant">
+  <div class="workflow-rim" aria-hidden="true"></div>
+  <div class="workflow-window">
+    <div class="window-bar"><div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div><span>Flowvia <b>/</b> Your lead-to-booking system</span><span class="preview-label">Illustrative workflow</span></div>
+    <div class="workflow-toolbar"><span><i></i> BUILT &amp; MANAGED FOR YOU</span><p>One enquiry. Every next step.</p><Icon name="diagonal" size={16} /></div>
+    <div class="workflow-controls" role="group" aria-label="Explore the Flowvia workflow">
+      <button type="button" data-workflow-show="ads" aria-controls="workflow-ads" aria-pressed="false">01 · Your ads</button>
+      <button type="button" data-workflow-show="assistant" aria-controls="workflow-assistant" aria-pressed="true">02 · AI assistant</button>
+      <button type="button" data-workflow-show="calendar" aria-controls="workflow-calendar" aria-pressed="false">03 · Calendar</button>
+    </div>
+    <div class="workflow-canvas">
+      <article class="workflow-column campaign-column" data-workflow-panel="ads" id="workflow-ads" aria-labelledby="workflow-ads-title">
+        <div class="workflow-column-heading"><span class="stage-icon"><Icon name="target" size={17} /></span><div><span>01 / ATTRACT</span><h2 id="workflow-ads-title">Your next enquiry.</h2></div><Icon name="arrow" size={16} /></div>
+        <div class="campaign-creative"><Image src={image} width={720} format="webp" alt="Illustrative solar installer photograph used in an example advertising campaign" loading="eager" fetchpriority="high" /><span class="creative-tag">SOLAR + BATTERY</span><div class="creative-copy"><span>Your business. Your service area.</span><strong>A brighter home<br />starts here.</strong><span class="creative-cta">Request an assessment <Icon name="diagonal" size={13} /></span></div></div>
+        <div class="workflow-caption"><span class="tiny-icon"><Icon name="target" size={14} /></span><p>Targeted ads bring homeowners<br />into your lead system.</p></div>
+      </article>
+      <article class="workflow-column assistant-column" data-workflow-panel="assistant" id="workflow-assistant" aria-labelledby="workflow-assistant-title">
+        <div class="workflow-column-heading"><span class="stage-icon"><Icon name="message" size={17} /></span><div><span>02 / QUALIFY &amp; FOLLOW UP</span><h2 id="workflow-assistant-title">A conversation, started.</h2></div><Icon name="arrow" size={16} /></div>
+        <div class="workflow-chat"><div class="workflow-chat-header"><span><Icon name="bolt" size={16} /></span><div><strong>Solar &amp; Battery Assistant</strong><p><i></i> Available around the clock</p></div></div><div class="demo-message homeowner">Hi, I’d like a quote for solar and a battery.</div><div class="demo-message ai">Great to hear from you! Is this for your own home, and roughly what’s your quarterly power bill?<span><Icon name="check" size={11} /> Replied in seconds</span></div><div class="demo-message homeowner">Yes, my home. About $600 a quarter.</div><div class="qualification-tags"><span><Icon name="check" size={11} /> Homeowner</span><span><Icon name="check" size={11} /> Bill captured</span></div></div>
+        <div class="workflow-caption"><span class="tiny-icon"><Icon name="bolt" size={14} /></span><p>Your AI assistant answers questions<br />and qualifies each opportunity.</p></div>
+      </article>
+      <article class="workflow-column calendar-column" data-workflow-panel="calendar" id="workflow-calendar" aria-labelledby="workflow-calendar-title">
+        <div class="workflow-column-heading"><span class="stage-icon"><Icon name="calendar" size={17} /></span><div><span>03 / BOOK</span><h2 id="workflow-calendar-title">A place in your calendar.</h2></div><Icon name="check" size={16} /></div>
+        <div class="booking-calendar"><div class="booking-calendar-heading"><span>Site assessments</span><Icon name="calendar" size={15} /></div><div class="calendar-week">{['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].map((day, i) => <span class:list={{ selected: i === 3 }}>{day}<b>{i === 3 ? '✓' : '·'}</b></span>)}</div><div class="assessment-event"><span class="event-line"></span><div><span>THURSDAY</span><strong>Solar &amp; battery assessment</strong><p>Qualified homeowner</p></div><Icon name="check" size={15} /></div><div class="calendar-checks"><span><Icon name="check" size={13} /> Homeowner details attached</span><span><Icon name="check" size={13} /> Appointment reminder scheduled</span></div></div>
+        <div class="workflow-caption"><span class="tiny-icon"><Icon name="calendar" size={14} /></span><p>Qualified homeowners book a visit.<br />You focus on the installation.</p></div>
+      </article>
+    </div>
+    <div class="workflow-footer"><span><Icon name="shield" size={13} /> Your leads. Your calendar. Your business.</span><span>Example homeowner journey</span></div>
+  </div>
+  <p class="workflow-preview-note">Illustrative workflow · Built and managed for your business.</p>
+</div>
